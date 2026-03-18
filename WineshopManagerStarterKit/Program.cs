@@ -74,20 +74,4 @@ using (var scope = app.Services.CreateScope())
 
 app.MapControllers();
 
-// Delete the database when the application is stopping (useful for dev/testing)
-app.Lifetime.ApplicationStopping.Register(() =>
-{
-    try
-    {
-        using var scope = app.Services.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-        context.Database.EnsureDeleted();
-        Console.WriteLine("Database deleted on shutdown.");
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"Failed to delete database on shutdown: {ex.Message}");
-    }
-});
-
 app.Run();
