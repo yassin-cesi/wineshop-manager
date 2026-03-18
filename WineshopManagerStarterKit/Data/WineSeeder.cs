@@ -12,6 +12,7 @@ public static class WineSeeder
         }
 
         context.Wines.AddRange(
+            new Wine { Name = "Emile LeClodo" },
             new Wine { Name = "Château Margaux" },
             new Wine { Name = "Barolo Riserva" },
             new Wine { Name = "Chablis Premier Cru" },

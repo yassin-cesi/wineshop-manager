@@ -67,6 +67,17 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+
+    // Set the configuration key "DropDatabaseOnStartup" to true to drop the DB each time the app starts.
+    // Default is false to avoid accidental data loss.
+    var dropDb = app.Configuration.GetValue<bool>("DropDatabaseOnStartup", true);
+
+    if (dropDb)
+    {
+        context.Database.EnsureDeleted();
+        Console.WriteLine("Database dropped.");
+    }
+
     context.Database.EnsureCreated();
     DbSeeder.Seed(context);
     Console.WriteLine("Database initialized and seeded successfully.");
