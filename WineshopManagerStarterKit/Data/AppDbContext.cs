@@ -11,5 +11,7 @@ public class AppDbContext : DbContext
     public DbSet<Supplier> Suppliers { get; set; }
     public DbSet<TypeVin> TypeVins { get; set; }    
     public DbSet<Order> Orders { get; set; } 
+    public DbSet<Client> Clients { get; set; }
+    public DbSet<Ticket> Tickets { get; set; }
 }
 
