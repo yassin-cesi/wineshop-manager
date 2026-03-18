@@ -9,4 +9,7 @@ public class AppDbContext : DbContext
 
     public DbSet<Wine> Wines { get; set; }
     public DbSet<Supplier> Suppliers { get; set; }
+
+    public DbSet<TypeVin> TypeVins { get; set; }    
 }
+
