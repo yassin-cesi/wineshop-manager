@@ -116,7 +116,7 @@ using (var scope = app.Services.CreateScope())
     // Seed Identity roles and admin user
     var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
     var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
-    await IdentitySeeder.SeedAsync(userManager, roleManager);
+    await IdentitySeeder.SeedAsync(roleManager, userManager);
 
     Console.WriteLine("Database initialized and seeded successfully.");
 }
