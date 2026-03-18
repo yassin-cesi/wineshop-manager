@@ -3,7 +3,8 @@
 public class Order
 {
 		public int Id { get; set; }
-		public int Supplier { get; set; } 
+		public int SupplierId { get; set; }
+		public Supplier Supplier { get; set; }
 		public DateTime? DateOrder { get; set; } = null;
 		public DateTime? DateDelivery { get; set; } = null;
 		public string Street { get; set; } = string.Empty;
